@@ -103,6 +103,19 @@ namespace BookStoreApp.Controllers
             }
             return BadRequest(new ResModel<List<BookEntity>> { Success = false, Message = "Notes Sorting Failed", Data = null });
         }
+        [Authorize]
+        [HttpGet]
+        [Route("Sortpricedescending")]
+
+        public ActionResult SortByPriceDescending()
+        {
+            var response = manager.SortByPriceDescending();
+            if (response != null)
+            {
+                return Ok(new ResModel<List<BookEntity>> { Success = true, Message = "Notes Sorted Successfully", Data = response });
+            }
+            return BadRequest(new ResModel<List<BookEntity>> { Success = false, Message = "Notes Sorting Failed", Data = null });
+        }
     }
 }
 

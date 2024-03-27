@@ -35,5 +35,9 @@ namespace ManagerLayer.Services
         {
             return repository.SortByPriceAscending();
         }
+        public List<BookEntity> SortByPriceDescending()
+        {
+            return repository.SortByPriceDescending();
+        }
     }
 }

@@ -65,11 +65,11 @@ namespace RepositoryLayer.Services
         }
         public List<BookEntity> SortByPriceAscending()
         {
-            return context.Book.OrderBy(x => x.Discount_Price).ToList();
+            return context.Book.OrderBy(x => x.Price).ToList();
         }
-        //public List<BookEntity> SortByPriceDecending()
-        //{
-        //    return context.Book.OrderByDescending(x => x.Discount_Price).ToList();
-        //}
+        public List<BookEntity> SortByPriceDescending()
+        {
+            return context.Book.OrderByDescending(x => x.Price).ToList();
+        }
     }
 }
