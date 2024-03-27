@@ -58,5 +58,27 @@ namespace BookStoreApp.Controllers
 
         //    }
         //}
+        [HttpPost]
+        [Route("Log")]
+        public ActionResult Login(Login model)
+        {
+            try
+            {
+                string response = userManager.UserLogin(model);
+                if (response != null)
+                {
+                    return Ok(new ResModel<string> { Success = true, Message = "Login successful", Data = response });
+                }
+                else
+                {
+                    return BadRequest(new ResModel<string> { Success = false, Message = "Login Failed", Data = response });
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ResModel<string> { Success = false, Message = ex.Message, Data = null });
+
+            }
+        }
     }
 }

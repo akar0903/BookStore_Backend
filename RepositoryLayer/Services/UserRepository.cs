@@ -29,7 +29,7 @@ namespace RepositoryLayer.Services
             UserEntity entity = new UserEntity();
             entity.FullName = model.FullName;
             entity.EmailId = model.EmailId;
-            entity.Password = model.Password;
+            entity.Password = Encrypt(model.Password);
             entity.MobileNumber = model.MobileNumber;
             var user1 = context.UserTable.FirstOrDefault(user => user.EmailId == model.EmailId);
             if (user1 != null)
@@ -66,52 +66,53 @@ namespace RepositoryLayer.Services
 
             return BCrypt.Net.BCrypt.Verify(password, hashedPassword);
         }
-        //public string UserLogin(RegisterModel model)
-        //{
+        public string UserLogin(Login model)
+        {
 
-        //    UserEntity user = context.Login.FirstOrDefault(u => u.EmailId == model.EmailId);
+            UserEntity user = context.UserTable.FirstOrDefault(u => u.EmailId == model.EmailId);
 
-        //    if (user == null)
-        //    {
-        //        throw new Exception("User Does not Exits ");
-        //    }
-        //    else if (user != null)
-        //    {
+            if (user == null)
+            {
+                throw new Exception("User Does not Exits ");
+            }
+            else if (user != null)
+            {
 
-        //        if (Decrypt(model.Password, user.Password))
-        //        {
-        //            string token = GenerateToken(user.EmailId, user.Id);
-        //            return token;
+                if (Decrypt(model.Password, user.Password))
+                {
+                    string token = GenerateToken(user.EmailId, user.Id);
+                    return token;
 
-        //        }
-        //        else
-        //        {
-        //            throw new Exception("Invalid Password ");
-        //        }
-        //    }
-        //    else
-        //    {
-        //        throw new Exception("Invalid EmailID ");
-        //    }
-        //}
-        //public string GenerateToken(string EmailId, int Id)
-        //{
-        //    var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Jwt:Key"]));
-        //    var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-        //    var claims = new[]
-        //    {
-        //        new Claim("EmailId",EmailId),
-        //        new Claim("Id",Id.ToString())
-        //    };
-        //    var token = new JwtSecurityToken(config["Jwt:Issuer"],
-        //        config["Jwt:Audience"],
-        //        claims,
-        //        expires: DateTime.Now.AddMinutes(15),
-        //        signingCredentials: credentials);
+                }
+                else
+                {
+                    throw new Exception("Invalid Password ");
+                }
+
+            }
+            else
+            {
+                throw new Exception("Invalid EmailID ");
+            }
+        }
+        public string GenerateToken(string EmailId, int Id)
+        {
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Jwt:Key"]));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+            var claims = new[]
+            {
+                new Claim("EmailId",EmailId),
+                new Claim("Id",Id.ToString())
+            };
+            var token = new JwtSecurityToken(config["Jwt:Issuer"],
+                config["Jwt:Audience"],
+                claims,
+                expires: DateTime.Now.AddMinutes(15),
+                signingCredentials: credentials);
 
 
-        //    return new JwtSecurityTokenHandler().WriteToken(token);
+            return new JwtSecurityTokenHandler().WriteToken(token);
 
-        //}
+        }
     }
 }

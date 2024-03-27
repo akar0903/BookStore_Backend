@@ -23,5 +23,9 @@ namespace ManagerLayer.Services
         //{
         //   return repository.UserLogin(model);
         //}
+        public string UserLogin(Login model)
+        {
+            return repository.UserLogin(model);
+        }
     }
 }

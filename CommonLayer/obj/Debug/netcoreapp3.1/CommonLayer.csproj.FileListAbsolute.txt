@@ -7,3 +7,4 @@ E:\BookStore\BookStoreApp\CommonLayer\obj\Debug\netcoreapp3.1\CommonLayer.Assemb
 E:\BookStore\BookStoreApp\CommonLayer\obj\Debug\netcoreapp3.1\CommonLayer.csproj.CoreCompileInputs.cache
 E:\BookStore\BookStoreApp\CommonLayer\obj\Debug\netcoreapp3.1\CommonLayer.dll
 E:\BookStore\BookStoreApp\CommonLayer\obj\Debug\netcoreapp3.1\CommonLayer.pdb
+E:\BookStore\BookStoreApp\CommonLayer\obj\Debug\netcoreapp3.1\CommonLayer.sourcelink.json
