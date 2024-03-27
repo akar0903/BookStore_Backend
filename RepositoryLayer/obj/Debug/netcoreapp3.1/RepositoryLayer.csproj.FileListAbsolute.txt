@@ -1,0 +1,16 @@
+E:\BookStore\BookStoreApp\RepositoryLayer\bin\Debug\netcoreapp3.1\RepositoryLayer.deps.json
+E:\BookStore\BookStoreApp\RepositoryLayer\bin\Debug\netcoreapp3.1\RepositoryLayer.runtimeconfig.json
+E:\BookStore\BookStoreApp\RepositoryLayer\bin\Debug\netcoreapp3.1\RepositoryLayer.runtimeconfig.dev.json
+E:\BookStore\BookStoreApp\RepositoryLayer\bin\Debug\netcoreapp3.1\RepositoryLayer.dll
+E:\BookStore\BookStoreApp\RepositoryLayer\bin\Debug\netcoreapp3.1\RepositoryLayer.pdb
+E:\BookStore\BookStoreApp\RepositoryLayer\bin\Debug\netcoreapp3.1\CommonLayer.dll
+E:\BookStore\BookStoreApp\RepositoryLayer\bin\Debug\netcoreapp3.1\CommonLayer.pdb
+E:\BookStore\BookStoreApp\RepositoryLayer\obj\Debug\netcoreapp3.1\RepositoryLayer.csproj.AssemblyReference.cache
+E:\BookStore\BookStoreApp\RepositoryLayer\obj\Debug\netcoreapp3.1\RepositoryLayer.GeneratedMSBuildEditorConfig.editorconfig
+E:\BookStore\BookStoreApp\RepositoryLayer\obj\Debug\netcoreapp3.1\RepositoryLayer.AssemblyInfoInputs.cache
+E:\BookStore\BookStoreApp\RepositoryLayer\obj\Debug\netcoreapp3.1\RepositoryLayer.AssemblyInfo.cs
+E:\BookStore\BookStoreApp\RepositoryLayer\obj\Debug\netcoreapp3.1\RepositoryLayer.csproj.CoreCompileInputs.cache
+E:\BookStore\BookStoreApp\RepositoryLayer\obj\Debug\netcoreapp3.1\RepositoryLayer.csproj.CopyComplete
+E:\BookStore\BookStoreApp\RepositoryLayer\obj\Debug\netcoreapp3.1\RepositoryLayer.dll
+E:\BookStore\BookStoreApp\RepositoryLayer\obj\Debug\netcoreapp3.1\RepositoryLayer.pdb
+E:\BookStore\BookStoreApp\RepositoryLayer\obj\Debug\netcoreapp3.1\RepositoryLayer.genruntimeconfig.cache
