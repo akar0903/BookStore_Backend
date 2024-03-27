@@ -4,6 +4,7 @@ using CommonLayer.Utility;
 using ManagerLayer.Interfaces;
 using ManagerLayer.Services;
 using MassTransit;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -110,6 +111,31 @@ namespace BookStoreApp.Controllers
             catch (Exception ex)
             {
                 return BadRequest(new ResModel<string> { Success = false, Message = ex.Message, Data = null });
+            }
+        }
+        [Authorize]
+        [HttpPost]
+        [Route("reset")]
+        public ActionResult Reset(ResetPasswordModel model)
+        {
+            try
+            {
+                string email = User.FindFirst("EmailId").Value;
+                return Ok(new ResModel<string>
+                {
+                    Success = true,
+                    Message = "Password Reset Successful",
+                    Data = userManager.ResetPassword(email, model)
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ResModel<string>
+                {
+                    Success = false,
+                    Message = ex.Message,
+                    Data = "Password reset unsuccessful"
+                });
             }
         }
     }

@@ -128,5 +128,20 @@ namespace RepositoryLayer.Services
             var user = context.UserTable.SingleOrDefault(user => user.EmailId == email);
             return user != null;
         }
+        public string ResetPassword(string email, ResetPasswordModel model)
+        {
+            if (model.OldPassword == model.NewPassword)
+            {
+                if (CheckEmail(email))
+                {
+                    var entity = context.UserTable.SingleOrDefault(user => user.EmailId == email);
+                    entity.Password = Encrypt(model.NewPassword);
+                    context.SaveChanges();
+                    return "true";
+                }
+                throw new Exception("Such Email does not exist...");
+            }
+            throw new Exception("Password Does not match...");
+        }
     }
 }
