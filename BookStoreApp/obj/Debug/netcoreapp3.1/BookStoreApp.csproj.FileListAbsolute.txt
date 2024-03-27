@@ -64,3 +64,13 @@ E:\BookStore\BookStoreApp\BookStoreApp\obj\Debug\netcoreapp3.1\BookStoreApp.dll
 E:\BookStore\BookStoreApp\BookStoreApp\obj\Debug\netcoreapp3.1\BookStoreApp.pdb
 E:\BookStore\BookStoreApp\BookStoreApp\obj\Debug\netcoreapp3.1\BookStoreApp.genruntimeconfig.cache
 E:\BookStore\BookStoreApp\BookStoreApp\obj\Debug\netcoreapp3.1\BookStoreApp.sourcelink.json
+E:\BookStore\BookStoreApp\BookStoreApp\bin\Debug\netcoreapp3.1\Automatonymous.dll
+E:\BookStore\BookStoreApp\BookStoreApp\bin\Debug\netcoreapp3.1\GreenPipes.dll
+E:\BookStore\BookStoreApp\BookStoreApp\bin\Debug\netcoreapp3.1\MassTransit.dll
+E:\BookStore\BookStoreApp\BookStoreApp\bin\Debug\netcoreapp3.1\MassTransit.AspNetCoreIntegration.dll
+E:\BookStore\BookStoreApp\BookStoreApp\bin\Debug\netcoreapp3.1\MassTransit.ExtensionsDependencyInjectionIntegration.dll
+E:\BookStore\BookStoreApp\BookStoreApp\bin\Debug\netcoreapp3.1\MassTransit.RabbitMqTransport.dll
+E:\BookStore\BookStoreApp\BookStoreApp\bin\Debug\netcoreapp3.1\Microsoft.Extensions.PlatformAbstractions.dll
+E:\BookStore\BookStoreApp\BookStoreApp\bin\Debug\netcoreapp3.1\NewId.dll
+E:\BookStore\BookStoreApp\BookStoreApp\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+E:\BookStore\BookStoreApp\BookStoreApp\bin\Debug\netcoreapp3.1\RabbitMQ.Client.dll

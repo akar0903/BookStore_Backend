@@ -114,5 +114,19 @@ namespace RepositoryLayer.Services
             return new JwtSecurityTokenHandler().WriteToken(token);
 
         }
+        public ForgetPasswordModel ForgetPassword(string email)
+        {
+            var entity = context.UserTable.SingleOrDefault(user => user.EmailId == email);
+            ForgetPasswordModel model = new ForgetPasswordModel();
+            model.Id = entity.Id.ToString();
+            model.EmailId = entity.EmailId;
+            model.Token = GenerateToken(email, entity.Id);
+            return model;
+        }
+        public bool CheckEmail(string email)
+        {
+            var user = context.UserTable.SingleOrDefault(user => user.EmailId == email);
+            return user != null;
+        }
     }
 }
