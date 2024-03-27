@@ -52,6 +52,8 @@ namespace BookStoreApp
             services.AddDbContext<BookContext>(a => a.UseSqlServer(Configuration["ConnectionStrings:BookStoreDb"]));
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserManager, UserManager>();
+            services.AddTransient<IBookRepository, BookRepository>();
+            services.AddTransient<IBookManager, BookManager>();
             services.AddControllers();
             services.AddSwaggerGen(option =>
             {
