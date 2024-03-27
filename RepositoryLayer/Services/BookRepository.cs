@@ -38,5 +38,34 @@ namespace RepositoryLayer.Services
         {
             return context.Book.ToList();
         }
+        public BookEntity GetBookById(int id) 
+        { 
+            BookEntity Book=context.Book.FirstOrDefault(x=>x.Book_Id==id);
+            if (Book != null)
+            {
+                return Book;
+            }
+            else
+            {
+                throw new Exception("No Book");
+            }
+        }
+        public List<BookEntity> Search(string search)
+        {
+            List<BookEntity> response = context.Book.Where(x => (x.Book_Name == search) || (x.Author == search)).ToList();
+            if (response.Count > 0)
+            {
+                return response;
+            }
+            else
+            {
+                throw new Exception("No books Found");
+            }
+            
+        }
+        //public List<BookEntity> SortByPrice()
+        //{
+        //    return context.Book.OrderBy(x => x.Discount_Price).ToList();
+        //}
     }
 }

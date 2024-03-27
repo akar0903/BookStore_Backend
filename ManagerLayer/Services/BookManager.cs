@@ -23,5 +23,13 @@ namespace ManagerLayer.Services
         {
             return repository.Books(id); 
         }
+        public BookEntity GetBookById(int id)
+        {
+             return repository.GetBookById(id);
+        }
+        public List<BookEntity> Search(string search)
+        {
+            return repository.Search(search);
+        }
     }
 }

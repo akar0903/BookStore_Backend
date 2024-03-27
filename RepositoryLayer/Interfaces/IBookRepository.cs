@@ -10,5 +10,7 @@ namespace RepositoryLayer.Interfaces
     {
         public BookEntity BookCreation(BookModel model, int id);
         public List<BookEntity> Books(int id);
+        public BookEntity GetBookById(int id);
+        public List<BookEntity> Search(string search);
     }
 }
