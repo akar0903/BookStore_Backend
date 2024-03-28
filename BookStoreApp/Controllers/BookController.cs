@@ -99,9 +99,9 @@ namespace BookStoreApp.Controllers
             var response = manager.SortByPriceAscending();
             if (response != null)
             {
-                return Ok(new ResModel<List<BookEntity>> { Success = true, Message = "Notes Sorted Successfully", Data = response });
+                return Ok(new ResModel<List<BookEntity>> { Success = true, Message = "Books Sorted Successfully", Data = response });
             }
-            return BadRequest(new ResModel<List<BookEntity>> { Success = false, Message = "Notes Sorting Failed", Data = null });
+            return BadRequest(new ResModel<List<BookEntity>> { Success = false, Message = "Books Sorting Failed", Data = null });
         }
         [Authorize]
         [HttpGet]
@@ -112,9 +112,9 @@ namespace BookStoreApp.Controllers
             var response = manager.SortByPriceDescending();
             if (response != null)
             {
-                return Ok(new ResModel<List<BookEntity>> { Success = true, Message = "Notes Sorted Successfully", Data = response });
+                return Ok(new ResModel<List<BookEntity>> { Success = true, Message = "Books Sorted Successfully", Data = response });
             }
-            return BadRequest(new ResModel<List<BookEntity>> { Success = false, Message = "Notes Sorting Failed", Data = null });
+            return BadRequest(new ResModel<List<BookEntity>> { Success = false, Message = "Books Sorting Failed", Data = null });
         }
         [Authorize]
         [HttpGet]
@@ -125,9 +125,9 @@ namespace BookStoreApp.Controllers
             var response = manager.SortByArrivalAscending();
             if (response != null)
             {
-                return Ok(new ResModel<List<BookEntity>> { Success = true, Message = "Notes Sorted Successfully", Data = response });
+                return Ok(new ResModel<List<BookEntity>> { Success = true, Message = "Books Sorted Successfully", Data = response });
             }
-            return BadRequest(new ResModel<List<BookEntity>> { Success = false, Message = "Notes Sorting Failed", Data = null });
+            return BadRequest(new ResModel<List<BookEntity>> { Success = false, Message = "Books Sorting Failed", Data = null });
         }
         [Authorize]
         [HttpGet]
@@ -138,9 +138,9 @@ namespace BookStoreApp.Controllers
             var response = manager.SortByArrivalDescending();
             if (response != null)
             {
-                return Ok(new ResModel<List<BookEntity>> { Success = true, Message = "Notes Sorted Successfully", Data = response });
+                return Ok(new ResModel<List<BookEntity>> { Success = true, Message = "Books Sorted Successfully", Data = response });
             }
-            return BadRequest(new ResModel<List<BookEntity>> { Success = false, Message = "Notes Sorting Failed", Data = null });
+            return BadRequest(new ResModel<List<BookEntity>> { Success = false, Message = "Books Sorting Failed", Data = null });
         }
     }
 }

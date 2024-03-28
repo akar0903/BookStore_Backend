@@ -61,6 +61,31 @@ namespace RepositoryLayer.Migrations
                     b.ToTable("Book");
                 });
 
+            modelBuilder.Entity("RepositoryLayer.Entity.CartEntity", b =>
+                {
+                    b.Property<int>("Cart_Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Book_Id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Cart_Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.HasKey("Cart_Id");
+
+                    b.HasIndex("Book_Id");
+
+                    b.HasIndex("Id");
+
+                    b.ToTable("Cart");
+                });
+
             modelBuilder.Entity("RepositoryLayer.Entity.UserEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -83,6 +108,21 @@ namespace RepositoryLayer.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("UserTable");
+                });
+
+            modelBuilder.Entity("RepositoryLayer.Entity.CartEntity", b =>
+                {
+                    b.HasOne("RepositoryLayer.Entity.BookEntity", "Book")
+                        .WithMany()
+                        .HasForeignKey("Book_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RepositoryLayer.Entity.UserEntity", "User")
+                        .WithMany()
+                        .HasForeignKey("Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

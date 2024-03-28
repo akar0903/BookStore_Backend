@@ -13,5 +13,6 @@ namespace RepositoryLayer.Context
         public DbSet<UserEntity> UserTable { get; set; }
         //public DbSet<UserEntity> login {  get; set; }
         public DbSet<BookEntity> Book {  get; set; }
+        public DbSet<CartEntity> Cart { get; set; }
     }
 }
