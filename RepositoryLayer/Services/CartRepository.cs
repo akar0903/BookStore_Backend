@@ -67,6 +67,20 @@ namespace RepositoryLayer.Services
         {
             return context.Cart.Where(x => x.Id == id).ToList();
         }
+        public CartEntity DeleteCart(int id, int cartid)
+        {
+            var cart = context.Cart.FirstOrDefault(x => x.Id == id && x.Cart_Id == cartid);
+            if (cart != null)
+            {
+                context.Cart.Remove(cart);
+                context.SaveChanges();
+                return cart;
+            }
+            else
+            {
+                throw new Exception("cart is already empty");
+            }
+        }
 
     }
 }

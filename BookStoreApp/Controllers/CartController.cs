@@ -78,6 +78,29 @@ namespace BookStoreApp.Controllers
                 return BadRequest(new ResModel<List<CartEntity>> { Success = false, Message = "Get Book Failure", Data = null });
             }
         }
+        [Authorize]
+        [HttpDelete]
+        [Route("deletecart")]
+        public ActionResult DeleteFromCart(int cartid)
+        {
+            try
+            {
+                int Id = Convert.ToInt32(User.FindFirst("Id").Value);
+                var response = manager.DeleteCart(Id, cartid);
+                if (response != null)
+                {
+                    return Ok(new ResModel<CartEntity> { Success = true, Message = "book removed from cart", Data = response });
+                }
+                else
+                {
+                    return BadRequest(new ResModel<CartEntity> { Success = false, Message = "book not removed from cart", Data = response });
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ResModel<CartEntity> { Success = false, Message = ex.Message, Data = null });
+            }
+        }
 
 
     }

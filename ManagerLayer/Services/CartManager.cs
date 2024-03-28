@@ -27,5 +27,9 @@ namespace ManagerLayer.Services
         {
             return repository.GetAllCart(id);
         }
+        public CartEntity DeleteCart(int id, int cartid)
+        {
+            return repository.DeleteCart(id, cartid);
+        }
     }
 }
