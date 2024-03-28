@@ -19,5 +19,9 @@ namespace ManagerLayer.Services
         {
             return repository.CartAdd(model, Id);
         }
+        public CartEntity UpdateCart(int id, int bookid, int update)
+        {
+            return repository.UpdateCart(id, bookid, update);
+        }
     }
 }

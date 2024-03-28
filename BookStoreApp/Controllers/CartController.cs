@@ -1,6 +1,7 @@
 ﻿using CommonLayer.RequestModel;
 using CommonLayer.ResponseModel;
 using ManagerLayer.Interfaces;
+using ManagerLayer.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -33,6 +34,29 @@ namespace BookStoreApp.Controllers
             else
             {
                 return BadRequest(new ResModel<CartEntity> { Success = false, Message = "creation failed", Data = response });
+            }
+        }
+        [Authorize]
+        [HttpPut]
+        [Route("updatecart")]
+        public ActionResult UpdateToCart(int bookid, int update)
+        {
+            try
+            {
+                int Id = Convert.ToInt32(User.FindFirst("Id").Value);
+                var response = manager.UpdateCart(Id, bookid, update);
+                if (response != null)
+                {
+                    return Ok(new ResModel<CartEntity> { Success = true, Message = "book added to cart", Data = response });
+                }
+                else
+                {
+                    return BadRequest(new ResModel<CartEntity> { Success = false, Message = "book not added to cart", Data = response });
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ResModel<CartEntity> { Success = false, Message = ex.Message, Data = null });
             }
         }
 

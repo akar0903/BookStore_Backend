@@ -9,5 +9,6 @@ namespace RepositoryLayer.Interfaces
     public interface ICartRepository
     {
         public CartEntity CartAdd(CartModel model, int Id);
+        public CartEntity UpdateCart(int id, int bookid, int update);
     }
 }

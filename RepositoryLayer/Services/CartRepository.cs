@@ -25,6 +25,44 @@ namespace RepositoryLayer.Services
             context.SaveChanges();
             return entity;
         }
-        
+        public CartEntity UpdateCart(int id, int bookid, int update)
+        {
+            var cart = context.Cart.FirstOrDefault(x => x.Id == id && x.Book_Id == bookid);
+            if (cart != null)
+            {
+                var book = context.Book.FirstOrDefault(x => x.Book_Id == bookid);
+                if (update == 1)
+                {
+                    if (book != null && book.Quantity > cart.Cart_Quantity)
+                    {
+                        context.Cart.Add(cart);
+                        context.SaveChanges();
+                        return cart;
+                    }
+                    else
+                    {
+                        throw new Exception("Product out of stock");
+                    }
+                }
+                else
+                {
+                    if (book != null && cart.Cart_Quantity > 1)
+                    {
+                        cart.Cart_Quantity -= 1;
+                        context.SaveChanges();
+                        return cart;
+                    }
+                    else
+                    {
+                        throw new Exception("minimum");
+                    }
+                }
+            }
+            else
+            {
+                throw new Exception("product not added to cart");
+            }
+        }
+
     }
 }
