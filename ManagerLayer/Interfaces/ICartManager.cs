@@ -10,5 +10,6 @@ namespace ManagerLayer.Interfaces
     {
         public CartEntity CartAdd(CartModel model, int Id);
         public CartEntity UpdateCart(int id, int bookid, int update);
+        public List<CartEntity> GetAllCart(int id);
     }
 }

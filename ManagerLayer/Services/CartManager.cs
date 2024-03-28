@@ -23,5 +23,9 @@ namespace ManagerLayer.Services
         {
             return repository.UpdateCart(id, bookid, update);
         }
+        public List<CartEntity> GetAllCart(int id)
+        {
+            return repository.GetAllCart(id);
+        }
     }
 }

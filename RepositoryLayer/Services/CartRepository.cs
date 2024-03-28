@@ -63,6 +63,10 @@ namespace RepositoryLayer.Services
                 throw new Exception("product not added to cart");
             }
         }
+        public List<CartEntity> GetAllCart(int id)
+        {
+            return context.Cart.Where(x => x.Id == id).ToList();
+        }
 
     }
 }

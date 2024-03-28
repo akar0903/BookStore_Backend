@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using RepositoryLayer.Context;
 using RepositoryLayer.Entity;
 using System;
+using System.Collections.Generic;
 
 namespace BookStoreApp.Controllers
 {
@@ -59,6 +60,25 @@ namespace BookStoreApp.Controllers
                 return BadRequest(new ResModel<CartEntity> { Success = false, Message = ex.Message, Data = null });
             }
         }
+        [Authorize]
+        [HttpGet]
+        [Route("Get")]
+        public ActionResult GetallfromCart()
+        {
+            int Id = Convert.ToInt32(User.FindFirst("Id").Value);
+            var data = manager.GetAllCart(Id);
+            if (data != null)
+            {
+
+                return Ok(new ResModel<List<CartEntity>> { Success = true, Message = "Get Book Successful", Data = data });
+
+            }
+            else
+            {
+                return BadRequest(new ResModel<List<CartEntity>> { Success = false, Message = "Get Book Failure", Data = null });
+            }
+        }
+
 
     }
 }
