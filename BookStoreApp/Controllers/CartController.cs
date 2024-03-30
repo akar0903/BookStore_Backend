@@ -101,6 +101,29 @@ namespace BookStoreApp.Controllers
                 return BadRequest(new ResModel<CartEntity> { Success = false, Message = ex.Message, Data = null });
             }
         }
+        [Authorize]
+        [HttpPost]
+        [Route("isPurchase")]
+        public ActionResult IsPurchase(int bookid,int cartid, int userid)
+        {
+            try
+            {
+                int cartId = Convert.ToInt32(User.FindFirst("Id").Value);
+                var response = manager.IsPurchase(bookid, cartid,userid);
+                if (response != null)
+                {
+                    return Ok(new ResModel<CartEntity> { Success = true, Message = "Purchased successfull", Data = response });
+                }
+                else
+                {
+                    return BadRequest(new ResModel<CartEntity> { Success = false, Message = "Purchase failed", Data = response });
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ResModel<CartEntity> { Success = false, Message = ex.Message, Data = null });
+            }
+        }
 
 
     }

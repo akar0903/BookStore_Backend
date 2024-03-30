@@ -77,6 +77,12 @@ namespace RepositoryLayer.Migrations
                     b.Property<int>("Id")
                         .HasColumnType("int");
 
+                    b.Property<bool>("IsPurchase")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("PurchaseDate")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Cart_Id");
 
                     b.HasIndex("Book_Id");

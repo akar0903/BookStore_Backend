@@ -2,6 +2,7 @@
 using RepositoryLayer.Context;
 using RepositoryLayer.Entity;
 using RepositoryLayer.Interfaces;
+using RepositoryLayer.Migrations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -81,6 +82,24 @@ namespace RepositoryLayer.Services
                 throw new Exception("cart is already empty");
             }
         }
-
+        public CartEntity IsPurchase(int bookid,int cartid,int userid)
+        {
+            var cart = context.Cart.FirstOrDefault(x=>x.Book_Id==bookid && x.Cart_Id==cartid && x.Id==userid);
+            if (cart != null)
+            {
+                if (cart.IsPurchase)
+                {
+                    cart.IsPurchase = false;
+                }
+                else
+                {
+                    cart.IsPurchase = true;
+                }
+                context.SaveChanges();
+                return cart;
+            }
+            throw new Exception("Is purchase failed");
+        }
+        
     }
 }

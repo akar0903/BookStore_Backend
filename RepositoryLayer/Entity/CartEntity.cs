@@ -21,5 +21,7 @@ namespace RepositoryLayer.Entity
         [JsonIgnore]
         public virtual BookEntity Book { get; set; }
         public int Cart_Quantity {  get; set; }
+        public bool IsPurchase {  get; set; }
+        public DateTime PurchaseDate { get; set; }
     }
 }

@@ -31,5 +31,9 @@ namespace ManagerLayer.Services
         {
             return repository.DeleteCart(id, cartid);
         }
+        public CartEntity IsPurchase(int bookid, int cartid, int userid)
+        {
+            return repository.IsPurchase(bookid, cartid,userid);
+        }
     }
 }
