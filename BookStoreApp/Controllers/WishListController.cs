@@ -37,5 +37,28 @@ namespace BookStoreApp.Controllers
                 return BadRequest(new ResModel<WishListEntity> { Success = false, Message = "creation failed", Data = response });
             }
         }
+        [Authorize]
+        [HttpDelete]
+        [Route("removewishlist")]
+        public ActionResult RemoveFromWishList(int userid,int bookid)
+        {
+            try
+            {
+                int Id = Convert.ToInt32(User.FindFirst("Id").Value);
+                var response = manager.RemoveWishList(Id, userid,bookid);
+                if (response != null)
+                {
+                    return Ok(new ResModel<WishListEntity> { Success = true, Message = "book removed from cart", Data = response });
+                }
+                else
+                {
+                    return BadRequest(new ResModel<WishListEntity> { Success = false, Message = "book not removed from cart", Data = response });
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ResModel<WishListEntity> { Success = false, Message = ex.Message, Data = null });
+            }
+        }
     }
 }

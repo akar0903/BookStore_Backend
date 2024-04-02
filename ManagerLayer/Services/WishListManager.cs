@@ -18,5 +18,9 @@ namespace ManagerLayer.Services
         {
            return repository.AddToWish(userid, bookid,id);
         }
+        public WishListEntity RemoveWishList(int id, int userid, int bookid)
+        {
+            return repository.RemoveWishList(id,userid,bookid);
+        }
     }
 }

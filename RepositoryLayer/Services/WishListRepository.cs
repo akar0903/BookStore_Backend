@@ -29,5 +29,19 @@ namespace RepositoryLayer.Services
             }
             throw new Exception("Already exists");
         }
+        public WishListEntity RemoveWishList(int id, int userid,int bookid)
+        {
+            var cart = context.WishList.FirstOrDefault(x => x.Id == userid && x.Book_Id == bookid);
+            if (cart != null)
+            {
+                context.WishList.Remove(cart);
+                context.SaveChanges();
+                return cart;
+            }
+            else
+            {
+                throw new Exception("WishList is already empty");
+            }
+        }
     }
 }
