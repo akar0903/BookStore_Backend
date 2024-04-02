@@ -12,8 +12,8 @@ namespace RepositoryLayer.Services
 {
     public class CartRepository:ICartRepository
     {
-        private readonly BookContext context;
-        public CartRepository(BookContext context)
+        private readonly WishListContext context;
+        public CartRepository(WishListContext context)
         {
             this.context = context;
         }

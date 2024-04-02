@@ -16,9 +16,9 @@ namespace RepositoryLayer.Services
 {
     public class UserRepository:IUserRepository
     {
-        private readonly BookContext context;
+        private readonly WishListContext context;
         private readonly IConfiguration config;
-        public UserRepository(BookContext context, IConfiguration config)
+        public UserRepository(WishListContext context, IConfiguration config)
         {
             this.context = context;
             this.config = config;

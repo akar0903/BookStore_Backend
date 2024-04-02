@@ -18,8 +18,8 @@ namespace BookStoreApp.Controllers
     public class BookController : ControllerBase
     {
         private IBookManager manager;
-        private readonly BookContext context;
-        public BookController(IBookManager manager, BookContext context)
+        private readonly WishListContext context;
+        public BookController(IBookManager manager, WishListContext context)
         {
             this.manager = manager;
             this.context = context;

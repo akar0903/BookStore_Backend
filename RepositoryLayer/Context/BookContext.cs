@@ -6,13 +6,14 @@ using System.Text;
 
 namespace RepositoryLayer.Context
 {
-    public class BookContext:DbContext
+    public class WishListContext:DbContext
     {
-        public BookContext(DbContextOptions options) : base(options)
+        public WishListContext(DbContextOptions options) : base(options)
         { }
         public DbSet<UserEntity> UserTable { get; set; }
         //public DbSet<UserEntity> login {  get; set; }
         public DbSet<BookEntity> Book {  get; set; }
         public DbSet<CartEntity> Cart { get; set; }
+        public DbSet<WishListEntity> WishList { get; set; }
     }
 }

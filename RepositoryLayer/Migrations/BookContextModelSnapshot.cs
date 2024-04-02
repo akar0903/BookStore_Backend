@@ -8,7 +8,7 @@ using RepositoryLayer.Context;
 
 namespace RepositoryLayer.Migrations
 {
-    [DbContext(typeof(BookContext))]
+    [DbContext(typeof(WishListContext))]
     partial class BookContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -116,6 +116,28 @@ namespace RepositoryLayer.Migrations
                     b.ToTable("UserTable");
                 });
 
+            modelBuilder.Entity("RepositoryLayer.Entity.WishListEntity", b =>
+                {
+                    b.Property<int>("WishListId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Book_Id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.HasKey("WishListId");
+
+                    b.HasIndex("Book_Id");
+
+                    b.HasIndex("Id");
+
+                    b.ToTable("WishList");
+                });
+
             modelBuilder.Entity("RepositoryLayer.Entity.CartEntity", b =>
                 {
                     b.HasOne("RepositoryLayer.Entity.BookEntity", "Book")
@@ -125,6 +147,21 @@ namespace RepositoryLayer.Migrations
                         .IsRequired();
 
                     b.HasOne("RepositoryLayer.Entity.UserEntity", "User")
+                        .WithMany()
+                        .HasForeignKey("Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("RepositoryLayer.Entity.WishListEntity", b =>
+                {
+                    b.HasOne("RepositoryLayer.Entity.BookEntity", "WishListFor")
+                        .WithMany()
+                        .HasForeignKey("Book_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RepositoryLayer.Entity.UserEntity", "WishListBy")
                         .WithMany()
                         .HasForeignKey("Id")
                         .OnDelete(DeleteBehavior.Cascade)

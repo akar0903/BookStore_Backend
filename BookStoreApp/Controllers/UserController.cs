@@ -20,9 +20,9 @@ namespace BookStoreApp.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserManager userManager;
-        private readonly BookContext context;
+        private readonly WishListContext context;
         private readonly IBus bus;
-        public UserController(IUserManager userManager, BookContext context, IBus bus)
+        public UserController(IUserManager userManager, WishListContext context, IBus bus)
         {
             this.userManager = userManager;
             this.context = context;

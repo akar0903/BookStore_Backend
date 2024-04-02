@@ -11,8 +11,8 @@ namespace RepositoryLayer.Services
 {
     public class BookRepository:IBookRepository
     {
-        private readonly BookContext context;
-        public BookRepository(BookContext context)
+        private readonly WishListContext context;
+        public BookRepository(WishListContext context)
         {
             this.context = context;
         }

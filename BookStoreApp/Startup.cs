@@ -49,13 +49,15 @@ namespace BookStoreApp
 
             });
             //services.AddControllers();
-            services.AddDbContext<BookContext>(a => a.UseSqlServer(Configuration["ConnectionStrings:BookStoreDb"]));
+            services.AddDbContext<WishListContext>(a => a.UseSqlServer(Configuration["ConnectionStrings:BookStoreDb"]));
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserManager, UserManager>();
             services.AddTransient<IBookRepository, BookRepository>();
             services.AddTransient<IBookManager, BookManager>();
             services.AddTransient<ICartRepository, CartRepository>();
             services.AddTransient<ICartManager, CartManager>();
+            services.AddTransient<IWishListRepository, WishListRepository>();
+            services.AddTransient<IWishListManager, WishListManager>();
             services.AddControllers();
             services.AddSwaggerGen(option =>
             {

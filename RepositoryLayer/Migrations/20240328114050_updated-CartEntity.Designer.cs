@@ -9,7 +9,7 @@ using RepositoryLayer.Context;
 
 namespace RepositoryLayer.Migrations
 {
-    [DbContext(typeof(BookContext))]
+    [DbContext(typeof(WishListContext))]
     [Migration("20240328114050_updated-CartEntity")]
     partial class updatedCartEntity
     {
