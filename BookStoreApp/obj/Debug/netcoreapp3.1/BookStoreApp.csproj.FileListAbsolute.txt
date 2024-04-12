@@ -74,3 +74,4 @@ E:\BookStore\BookStoreApp\BookStoreApp\bin\Debug\netcoreapp3.1\Microsoft.Extensi
 E:\BookStore\BookStoreApp\BookStoreApp\bin\Debug\netcoreapp3.1\NewId.dll
 E:\BookStore\BookStoreApp\BookStoreApp\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 E:\BookStore\BookStoreApp\BookStoreApp\bin\Debug\netcoreapp3.1\RabbitMQ.Client.dll
+E:\BookStore\BookStoreApp\BookStoreApp\bin\Debug\netcoreapp3.1\CloudinaryDotNet.dll

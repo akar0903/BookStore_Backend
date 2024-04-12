@@ -47,5 +47,9 @@ namespace ManagerLayer.Services
         {
             return repository.SortByArrivalDescending();
         }
+        public string UploadImage(string fpath, int notesId, int userId)
+        {
+            return repository.UploadImage(fpath, notesId, userId);
+        }
     }
 }

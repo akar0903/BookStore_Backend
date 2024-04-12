@@ -1,4 +1,6 @@
-﻿using CommonLayer.RequestModel;
+﻿using CloudinaryDotNet.Actions;
+using CloudinaryDotNet;
+using CommonLayer.RequestModel;
 using RepositoryLayer.Context;
 using RepositoryLayer.Entity;
 using RepositoryLayer.Interfaces;
@@ -78,6 +80,38 @@ namespace RepositoryLayer.Services
         public List<BookEntity> SortByArrivalDescending()
         {
             return context.Book.OrderByDescending(x => x.CreatedAt).ToList();
+        }
+        public string UploadImage(string fpath, int notesId, int userId)
+        {
+            try
+            {
+                var notesEntityUserId = context.Book.Where(x => x.Book_Id == userId);
+                if (notesEntityUserId != null)
+                {
+                    var notesEntityNoteId = notesEntityUserId.FirstOrDefault(x => x.Book_Id == notesId);
+                    if (notesEntityNoteId != null)
+                    {
+                        Account account = new Account("dia3hvdxc", "724524628225628", "X6Jm68BOifYnoUR6L3sM9ss1BnQ");
+                        Cloudinary cloudinary = new Cloudinary(account);
+                        ImageUploadParams uploadParams = new ImageUploadParams()
+                        {
+                            File = new FileDescription(fpath),
+                            PublicId = notesEntityNoteId.Book_Name
+                        };
+                        ImageUploadResult uploadResult = cloudinary.Upload(uploadParams);
+                        notesEntityNoteId.UpdatedAt = DateTime.Now;
+                        notesEntityNoteId.Book_Image = uploadResult.Url.ToString();
+                        context.SaveChanges();
+                        return "Image uploaded Successfully";
+                    }
+                    return null;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
     }
 }
